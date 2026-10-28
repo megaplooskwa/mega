@@ -39,8 +39,8 @@ repo (`apps/kb/` → `src/`), so the desk's site builds from here and its index 
 `docs/` is that site, published with GitHub Pages: the site root is the page as the desk will see it,
 and `docs/kb/` is the kb index.
 
-The page is signed: its frontmatter carries `signature: megaplooskwa` and it ends with
-`<RenderStamp {signature} />`, so the desk ref `DR-WCP1-ZDT3` is derived from the signature, not
+The page is signed: its frontmatter carries the challenge-start ticket as `signature:`, exactly as the course gave it and it ends with
+`<RenderStamp {signature} />`, so the desk ref `DR-DE0Y-QJFD` is derived from the signature, not
 typed.
 
 ## What is in here

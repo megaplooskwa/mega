@@ -4,7 +4,7 @@ title: '#4471 · two problems, one ticket'
 owner: megaplooskwa
 status: open
 reviewed: 2026-10-28
-signature: megaplooskwa
+signature: v1.eyJzdWIiOiIxNTcwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMxNzczMTcsImV4cCI6MTc5MzI2MzcxN30.SbEW3sEVCUAIcAoCCUlcZvPNfeADESpsDdhmlPLkLa8
 ---
 
 <script>
