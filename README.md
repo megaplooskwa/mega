@@ -31,7 +31,8 @@ completed, #2 as not planned.
 | the same page, at the repo root | [`what-it-shows.svx`](what-it-shows.svx) |
 | the page as the desk will see it | [`what-it-shows.html`](what-it-shows.html) — rendered by the kb's own components, numbers computed, not typed |
 | a picture of it | [`what-it-shows.png`](what-it-shows.png) |
-| the desk's site, built | [`build/kb/incidents/4471-two-problems.html`](build/kb/incidents/4471-two-problems.html) |
+| the desk's site, built | [`build/kb/incidents/4471-two-problems/index.html`](build/kb/incidents/4471-two-problems/index.html) |
+| the same page at the desk's route path | [`kb/incidents/4471-two-problems/index.html`](kb/incidents/4471-two-problems/index.html) |
 
 This repo **is** the kb: the export's contents sit at the root, the way they would in the desk's own
 repo (`apps/kb/` → `src/`), so the desk's site builds from here and its index finds the new page.
