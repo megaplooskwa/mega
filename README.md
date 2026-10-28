@@ -31,11 +31,13 @@ completed, #2 as not planned.
 | the same page, at the repo root | [`what-it-shows.svx`](what-it-shows.svx) |
 | the page as the desk will see it | [`what-it-shows.html`](what-it-shows.html) — rendered by the kb's own components, numbers computed, not typed |
 | a picture of it | [`what-it-shows.png`](what-it-shows.png) |
-| the desk's site, built | [`build/kb/incidents/4471-two-problems/index.html`](build/kb/incidents/4471-two-problems/index.html) |
+| the desk's site, built and published | [`docs/kb/incidents/4471-two-problems/index.html`](docs/kb/incidents/4471-two-problems/index.html) |
 | the same page at the desk's route path | [`kb/incidents/4471-two-problems/index.html`](kb/incidents/4471-two-problems/index.html) |
 
 This repo **is** the kb: the export's contents sit at the root, the way they would in the desk's own
 repo (`apps/kb/` → `src/`), so the desk's site builds from here and its index finds the new page.
+`docs/` is that site, published with GitHub Pages: the site root is the page as the desk will see it,
+and `docs/kb/` is the kb index.
 
 The page is signed: its frontmatter carries `signature: megaplooskwa` and it ends with
 `<RenderStamp {signature} />`, so the desk ref `DR-WCP1-ZDT3` is derived from the signature, not
@@ -49,7 +51,7 @@ src/                               the desk's kb export, as handed over, with on
   routes/kb/incidents/4471-two-problems/+page.svx   <- the page, in the kb
   lib/kb/                                            the desk's own logic (unchanged)
   lib/data/                                          the desk's export (unchanged)
-build/                             the desk's site, built from those files
+docs/                              the desk's site, built; GitHub Pages serves this folder
 tools/                             the analysis that produced the counts, and the render step
 KB-README.md                       the desk's own README for the kb, unchanged
 ```

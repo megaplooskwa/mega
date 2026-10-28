@@ -13,7 +13,8 @@ export default {
     })
   ],
   kit: {
-    adapter: adapter({ pages: 'build', assets: 'build', fallback: undefined, strict: false }),
+    // `docs/` is the built site, and the folder GitHub Pages serves this repo from.
+    adapter: adapter({ pages: 'docs', assets: 'docs', fallback: undefined, strict: false }),
     alias: { '#lib': 'src/lib' },
     prerender: {
       entries: ['/kb', '/kb/triage/dedupe', '/kb/incidents/4471', '/kb/incidents/4471-two-problems', '/kb/decisions/0001-dedupe-by-subject']
