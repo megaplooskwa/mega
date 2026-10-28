@@ -3,9 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "vite build",
     "render": "node tools/render-page.mjs"
   },
   "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.48.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "mdsvex": "^0.12.6",
     "svelte": "^5.57.3",

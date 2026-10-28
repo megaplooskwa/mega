@@ -25,19 +25,28 @@ completed, #2 as not planned.
 
 ## The page
 
-- source: [`support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx`](support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx)
-- as the desk will see it: [`rendered/4471-two-problems.html`](rendered/4471-two-problems.html) (open it in a browser; the numbers are computed by the kb's own components)
-- screenshot: [`rendered/4471-two-problems.png`](rendered/4471-two-problems.png)
+| what | where |
+| --- | --- |
+| the page, in the kb | [`support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx`](support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx) |
+| the same page, at the repo root | [`what-it-shows.svx`](what-it-shows.svx) |
+| the page as the desk will see it | [`what-it-shows.html`](what-it-shows.html) — rendered by the kb's own components, numbers computed, not typed |
+| a picture of it | [`what-it-shows.png`](what-it-shows.png) |
+| the desk's site, built | [`support-kb/build/kb/incidents/4471-two-problems.html`](support-kb/build/kb/incidents/4471-two-problems.html) |
+
+The page is signed: its frontmatter carries `signature: megaplooskwa` and it ends with
+`<RenderStamp {signature} />`, so the desk ref `DR-WCP1-ZDT3` is derived from the signature, not
+typed.
 
 ## What is in here
 
 ```
-support-kb/     the desk's kb export, as handed over, with one page added
-  src/routes/kb/incidents/4471-two-problems/+page.svx   <- the page this Challenge asks for
+what-it-shows.svx / .html / .png   the page, its rendered form, a picture of it
+support-kb/                        the desk's kb export, as handed over, with one page added
+  src/routes/kb/incidents/4471-two-problems/+page.svx   <- the page, in the kb
   src/lib/kb/                                            the desk's own logic (unchanged)
   src/lib/data/                                          the desk's export (unchanged)
-rendered/       the page rendered by the kb's components, plus a screenshot
-tools/          the analysis that produced the counts, and the render scaffold
+  build/                                                 the desk's site, built from those files
+tools/                             the analysis that produced the counts
 ```
 
 The kb export itself carries no build setup — it is source only. `support-kb/package.json`,

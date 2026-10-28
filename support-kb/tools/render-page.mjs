@@ -13,7 +13,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const kbRoot = resolve(here, '..');
-const outDir = resolve(kbRoot, '..', 'rendered');
+const outDir = resolve(kbRoot, '..');
 const ssrDir = resolve(kbRoot, 'tools/.render');
 
 await build({
@@ -50,6 +50,6 @@ ${body}
 `;
 
 mkdirSync(outDir, { recursive: true });
-const out = resolve(outDir, '4471-two-problems.html');
+const out = resolve(outDir, 'what-it-shows.html');
 writeFileSync(out, html, 'utf8');
 console.log('wrote', out, html.length, 'bytes');
