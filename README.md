@@ -27,11 +27,14 @@ completed, #2 as not planned.
 
 | what | where |
 | --- | --- |
-| the page, in the kb | [`support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx`](support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx) |
+| the page, in the kb | [`src/routes/kb/incidents/4471-two-problems/+page.svx`](src/routes/kb/incidents/4471-two-problems/+page.svx) |
 | the same page, at the repo root | [`what-it-shows.svx`](what-it-shows.svx) |
 | the page as the desk will see it | [`what-it-shows.html`](what-it-shows.html) — rendered by the kb's own components, numbers computed, not typed |
 | a picture of it | [`what-it-shows.png`](what-it-shows.png) |
-| the desk's site, built | [`support-kb/build/kb/incidents/4471-two-problems.html`](support-kb/build/kb/incidents/4471-two-problems.html) |
+| the desk's site, built | [`build/kb/incidents/4471-two-problems.html`](build/kb/incidents/4471-two-problems.html) |
+
+This repo **is** the kb: the export's contents sit at the root, the way they would in the desk's own
+repo (`apps/kb/` → `src/`), so the desk's site builds from here and its index finds the new page.
 
 The page is signed: its frontmatter carries `signature: megaplooskwa` and it ends with
 `<RenderStamp {signature} />`, so the desk ref `DR-WCP1-ZDT3` is derived from the signature, not
@@ -41,21 +44,22 @@ typed.
 
 ```
 what-it-shows.svx / .html / .png   the page, its rendered form, a picture of it
-support-kb/                        the desk's kb export, as handed over, with one page added
-  src/routes/kb/incidents/4471-two-problems/+page.svx   <- the page, in the kb
-  src/lib/kb/                                            the desk's own logic (unchanged)
-  src/lib/data/                                          the desk's export (unchanged)
-  build/                                                 the desk's site, built from those files
-tools/                             the analysis that produced the counts
+src/                               the desk's kb export, as handed over, with one page added
+  routes/kb/incidents/4471-two-problems/+page.svx   <- the page, in the kb
+  lib/kb/                                            the desk's own logic (unchanged)
+  lib/data/                                          the desk's export (unchanged)
+build/                             the desk's site, built from those files
+tools/                             the analysis that produced the counts, and the render step
+KB-README.md                       the desk's own README for the kb, unchanged
 ```
 
-The kb export itself carries no build setup — it is source only. `support-kb/package.json`,
-`svelte.config.js` and `src/app.html` were added by the harness so the page could be built and
+The kb export carries no build setup — it is source only. `package.json`, `svelte.config.js`,
+`vite.config.js` and `src/app.html` were added by the harness so the page could be built and
 rendered with the desk's own components; the desk's own files are otherwise untouched.
 
 ## How the counts were produced
 
-`support-kb/src/lib/kb/causes.ts` decides a cause per report from its channel and its tenant's
+`src/lib/kb/causes.ts` decides a cause per report from its channel and its tenant's
 booking form. The export repeats rows across pages, so `uniqueById()` runs first: 427 rows are
 **412 reports**. Of those, `causeOf()` puts 379 under `parser` and 33 under `hint`; the ticket is
 filed under the group most of its reports share (`parser`), which is why the other 33 have no

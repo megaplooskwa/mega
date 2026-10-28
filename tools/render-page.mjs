@@ -13,7 +13,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const kbRoot = resolve(here, '..');
-const outDir = resolve(kbRoot, '..');
+const outDir = kbRoot;
 const ssrDir = resolve(kbRoot, 'tools/.render');
 
 await build({
