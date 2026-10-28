@@ -1,0 +1,53 @@
+---
+layout: runbook
+title: '#4471 · two problems, one ticket'
+owner: megaplooskwa
+status: open
+reviewed: 2026-10-28
+signature: megaplooskwa
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+#4471 was merged as one issue and marked known. Read against the export, the 412 reports in it are
+two problems, not one. The shared parser reads dates month first while every tenant on file writes
+the day first — that is the cause most of the reports share, and the cause the ticket is filed
+under. The rest came in through `booking-v3`, whose date field asks for `MM/DD/YYYY`: a day-first
+tenant types the month first, the form reads the field the tenant's way, and the day and the month
+swap again. Same symptom, different cause.
+
+<CauseTable ticket={4471} />
+
+## The tickets
+
+Both problems now have a ticket of their own, in the harness's public repo:
+
+- [megaplooskwa/mega#1](https://github.com/megaplooskwa/mega/issues/1) — the parser problem, **379 reports**.
+- [megaplooskwa/mega#2](https://github.com/megaplooskwa/mega/issues/2) — the hint problem, **33 reports**.
+
+379 + 33 = 412: the two tickets cover the merged ticket once each, and nothing is counted twice.
+
+<Callout kind="warn">
+Fixing the parser will not clear the 33. They keep arriving through booking-v3 for as long as its
+date field asks a day-first tenant for a month-first date.
+</Callout>
+
+## How the numbers were counted
+
+Nothing here is typed in by hand. `CauseTable` computes the groups from the export at render time:
+`uniqueById` first (the export repeats rows across pages — 427 rows are 412 reports), then
+`causeOf` for each report, from its channel and its tenant's booking form. The 5 reports the desk
+read as a one-day move stay where they are filed, under `parser`, and are footnoted under the table.
+
+The two causes split by tenant form, not by country:
+
+| tenant form | date hint | reports | cause |
+| --- | --- | --- | --- |
+| booking-v2 | `DD/MM/YYYY` | 379 | `parser` |
+| booking-v3 | `MM/DD/YYYY` | 33 | `hint` |
+
+<RenderStamp {signature} />
