@@ -19,6 +19,10 @@ covers, and adds a signed page about them to the kb.
 
 379 + 33 = 412 — the two problems the merged ticket actually holds, counted once each.
 
+The desk closed #4471 on 5 October: `parser` **fixed** (`fix(dates): parse dd/mm for eu locales`),
+`hint` **won't fix** (`booking-v3 form retired`). Both tickets are closed to match — #1 as
+completed, #2 as not planned.
+
 ## The page
 
 - source: [`support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx`](support-kb/src/routes/kb/incidents/4471-two-problems/+page.svx)

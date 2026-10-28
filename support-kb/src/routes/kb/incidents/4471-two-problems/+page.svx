@@ -31,9 +31,22 @@ Both problems now have a ticket of their own, in the harness's public repo:
 
 379 + 33 = 412: the two tickets cover the merged ticket once each, and nothing is counted twice.
 
+## The desk closed #4471
+
+On 5 October the desk closed #4471 and answered the two problems, one each way:
+
+| cause | desk | reason |
+| --- | --- | --- |
+| `parser` | fixed | `fix(dates): parse dd/mm for eu locales` |
+| `hint` | won't fix | `booking-v3 form retired` |
+
+The fix answers the 379. Retiring the form ends the 33 rather than repairing them: the field that
+asked a day-first tenant for a month-first date is gone. Both tickets are closed to match — #1 as
+completed, #2 as not planned.
+
 <Callout kind="warn">
-Fixing the parser will not clear the 33. They keep arriving through booking-v3 for as long as its
-date field asks a day-first tenant for a month-first date.
+Closed is not the same as counted. The 33 were never the parser's, so a fix for the parser would
+have closed them without touching them.
 </Callout>
 
 ## How the numbers were counted
